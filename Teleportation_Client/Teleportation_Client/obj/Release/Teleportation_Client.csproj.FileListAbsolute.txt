@@ -1,0 +1,17 @@
+C:\Users\WINDQUTE\source\repos\Teleportation_Client\Teleportation_Client\bin\Release\心灵传输：客户端.exe.config
+C:\Users\WINDQUTE\source\repos\Teleportation_Client\Teleportation_Client\bin\Release\心灵传输：客户端.exe
+C:\Users\WINDQUTE\source\repos\Teleportation_Client\Teleportation_Client\bin\Release\心灵传输：客户端.pdb
+C:\Users\WINDQUTE\source\repos\Teleportation_Client\Teleportation_Client\obj\Release\Teleportation_Client.csprojAssemblyReference.cache
+C:\Users\WINDQUTE\source\repos\Teleportation_Client\Teleportation_Client\obj\Release\ChatWindow.g.cs
+C:\Users\WINDQUTE\source\repos\Teleportation_Client\Teleportation_Client\obj\Release\MainWindow.g.cs
+C:\Users\WINDQUTE\source\repos\Teleportation_Client\Teleportation_Client\obj\Release\App.g.cs
+C:\Users\WINDQUTE\source\repos\Teleportation_Client\Teleportation_Client\obj\Release\心灵传输：客户端_MarkupCompile.cache
+C:\Users\WINDQUTE\source\repos\Teleportation_Client\Teleportation_Client\obj\Release\心灵传输：客户端_MarkupCompile.lref
+C:\Users\WINDQUTE\source\repos\Teleportation_Client\Teleportation_Client\obj\Release\ChatWindow.baml
+C:\Users\WINDQUTE\source\repos\Teleportation_Client\Teleportation_Client\obj\Release\MainWindow.baml
+C:\Users\WINDQUTE\source\repos\Teleportation_Client\Teleportation_Client\obj\Release\心灵传输：客户端.g.resources
+C:\Users\WINDQUTE\source\repos\Teleportation_Client\Teleportation_Client\obj\Release\Teleportation_Client.Properties.Resources.resources
+C:\Users\WINDQUTE\source\repos\Teleportation_Client\Teleportation_Client\obj\Release\Teleportation_Client.csproj.GenerateResource.cache
+C:\Users\WINDQUTE\source\repos\Teleportation_Client\Teleportation_Client\obj\Release\Teleportation_Client.csproj.CoreCompileInputs.cache
+C:\Users\WINDQUTE\source\repos\Teleportation_Client\Teleportation_Client\obj\Release\心灵传输：客户端.exe
+C:\Users\WINDQUTE\source\repos\Teleportation_Client\Teleportation_Client\obj\Release\心灵传输：客户端.pdb
