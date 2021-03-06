@@ -1,0 +1,100 @@
+﻿/* 编写者：王琪，学号：U201713824，华中科技大学，光学与电子信息学院，电子1702班，QQ：1910652892
+ * 本软件是王琪的毕业设计《基于TCP/IP的远程聊天软件设计与实现》的实现软件作品，作品名称：“心灵传输”
+ * 2021年3月12日星期五：完成版本V2.0的服务器端编写，增加了TCP监听初始化进程的功能，并对服务器端软件进行BUG修复
+ * //王琪：1定义了一个结构体LoginDataContent
+ * //王琪：2采用List型变长数组定义了一个List<LoginDataContent>型的变量ServerLoginDataContent
+ * //王琪：3导入之前保存的用户登录数据
+ * //王琪：4启动TCP监听初始化进程（已完成）
+ * //王琪：5使得鼠标左键按下时能拖动程序窗口
+ * //王琪：6使得点击[安全退出服务器端]按钮时先保存聊天数据再完全退出
+ * //王琪：7保存聊天记录至纯文本格式的自定义后缀名WANGQI的文件，利用File.AppendAllText函数
+ * //王琪：8修改客户端登录账户数据从纯文本格式的自定义后缀名WANGQI的文件，利用Process.Start()传参启动notepad.exe系统自带记事本程序
+ * //王琪：9打开聊天记录从纯文本格式的自定义后缀名WANGQI的文件，利用Process.Start()传参启动notepad.exe系统自带记事本程序
+ * //王琪：10重新启动服务器端，利用Process.Start()传参启动自身程序
+ * //王琪：11读取客户端登录账户数据从纯文本格式的自定义后缀名WANGQI的文件，利用string.Split()分割字符串，缺点是不支持中文且特殊字符支持不完全
+ * //王琪：12采用了特殊自定义字符串作为分割字符串的标志字符串，引入using System.Text.RegularExpressions;极大的提升了程序稳定性
+ * //王琪：13引入TCP相关变量，定义了一个类，名称为：User
+ * //王琪：14一个类，名称为：User，其中定义了一个public的成员TcpClient变量：client
+ * //王琪：15一个类，名称为：User，其中定义了一个public的成员BinaryReader变量：br
+ * //王琪：16一个类，名称为：User，其中定义了一个public的成员BinaryWriter变量：bw
+ * //王琪：17一个类，名称为：User，其中定义了一个public的成员string变量：userName
+ * //王琪：18一个类，名称为：User，其中定义了一个public的成员User函数：public User(TcpClient client)
+ * //王琪：19一个类，名称为：User，其中定义了一个public的成员Close函数：public void Close()
+ * //王琪：20采用List型变长数组定义了一个List<User>型的变量userList，用于储存连接的客户端用户相关数据传输的标识信息
+ * //王琪：21本服务器所在计算机的IP地址，用IPAddress类定义变量localAddress
+ * //王琪：22本服务器所在计算机的IP地址对应的端口号，用const int类定义变量port = 52557，其中52557指我爱王王其（谐音，即：我爱自己）
+ * //王琪：23定义了一个private的成员TcpListener变量：myListener
+ * //王琪：24定义了一个private的成员bool变量：isExit，初始值为false来指示程序是否退出
+ * //王琪：25启动线程myThread，用于监听客户端连接请求
+ * //王琪：26函数private void ListenClientConnect()，用于监听客户端连接请求
+ * //王琪：27使用轮询方式来判断异步操作是否完成
+ * //王琪：28获取Begin 方法的返回值和所有输入/输出参数
+ * //王琪：29每接受一个客户端连接，就创建一个对应的线程循环接收该客户端发来的信息
+ * //王琪：30在自定义函数中如果要修改WPF界面程序，必须调用this.Dispatcher.Invoke(() =>{});方法
+ * //王琪：31接受挂起的客户端连接请求
+ * //王琪：32在用户失联后调用RemoveUser(user);删除指定已离线用户
+ * //王琪：33利用splitSignalString分割字符串，获得指令参数信息
+ * //王琪：34无论指令参数信息如何，必须验证发送此消息的客户端的特征用户名与密码是否正确，防止别有用心的人恶意攻击致使服务器信息被破解
+ * //王琪：35接收客户端发来的信息
+ * //王琪：36移除用户
+ * //王琪：37异步发送message给user
+ * //王琪：38发送message给user
+ * //王琪：39将字符串写入网络流，此方法会自动附加字符串长度前缀
+ * //王琪：40异步发送信息给所有客户
+ * Copyright © 王琪  2021
+ */
+using System.Reflection;
+using System.Resources;
+using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
+using System.Windows;
+
+// 有关程序集的一般信息由以下
+// 控制。更改这些特性值可修改
+// 与程序集关联的信息。
+[assembly: AssemblyTitle("心灵传输：服务器端")]
+[assembly: AssemblyDescription("基于TCP的C/S模式远程聊天软件设计与实现")]
+[assembly: AssemblyConfiguration("至臻版")]
+[assembly: AssemblyCompany("王琪制作")]
+[assembly: AssemblyProduct("王琪制作的心灵传输：服务器端")]
+[assembly: AssemblyCopyright("Copyright © 王琪  2021")]
+[assembly: AssemblyTrademark("中国")]
+[assembly: AssemblyCulture("")]
+
+// 将 ComVisible 设置为 false 会使此程序集中的类型
+//对 COM 组件不可见。如果需要从 COM 访问此程序集中的类型
+//请将此类型的 ComVisible 特性设置为 true。
+[assembly: ComVisible(false)]
+
+//若要开始生成可本地化的应用程序，请设置
+//.csproj 文件中的 <UICulture>CultureYouAreCodingWith</UICulture>
+//例如，如果您在源文件中使用的是美国英语，
+//使用的是美国英语，请将 <UICulture> 设置为 en-US。  然后取消
+//对以下 NeutralResourceLanguage 特性的注释。  更新
+//以下行中的“en-US”以匹配项目文件中的 UICulture 设置。
+
+//[assembly: NeutralResourcesLanguage("en-US", UltimateResourceFallbackLocation.Satellite)]
+
+
+[assembly: ThemeInfo(
+    ResourceDictionaryLocation.None, //主题特定资源词典所处位置
+                                     //(未在页面中找到资源时使用，
+                                     //或应用程序资源字典中找到时使用)
+    ResourceDictionaryLocation.SourceAssembly //常规资源词典所处位置
+                                              //(未在页面中找到资源时使用，
+                                              //、应用程序或任何主题专用资源字典中找到时使用)
+)]
+
+
+// 程序集的版本信息由下列四个值组成: 
+//
+//      主版本
+//      次版本
+//      生成号
+//      修订号
+//
+//可以指定所有这些值，也可以使用“生成号”和“修订号”的默认值
+//通过使用 "*"，如下所示:
+// [assembly: AssemblyVersion("1.0.*")]
+[assembly: AssemblyVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.0.0.0")]

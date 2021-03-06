@@ -1,0 +1,15 @@
+C:\Users\WINDQUTE\source\repos\Teleportation_Server\Teleportation_Server\obj\Debug\Teleportation_Server.csprojAssemblyReference.cache
+C:\Users\WINDQUTE\source\repos\Teleportation_Server\Teleportation_Server\obj\Debug\MainWindow.g.cs
+C:\Users\WINDQUTE\source\repos\Teleportation_Server\Teleportation_Server\obj\Debug\App.g.cs
+C:\Users\WINDQUTE\source\repos\Teleportation_Server\Teleportation_Server\obj\Debug\MainWindow.baml
+C:\Users\WINDQUTE\source\repos\Teleportation_Server\Teleportation_Server\obj\Debug\Teleportation_Server.Properties.Resources.resources
+C:\Users\WINDQUTE\source\repos\Teleportation_Server\Teleportation_Server\obj\Debug\Teleportation_Server.csproj.GenerateResource.cache
+C:\Users\WINDQUTE\source\repos\Teleportation_Server\Teleportation_Server\obj\Debug\Teleportation_Server.csproj.CoreCompileInputs.cache
+C:\Users\WINDQUTE\source\repos\Teleportation_Server\Teleportation_Server\bin\Debug\心灵传输：服务器端.exe.config
+C:\Users\WINDQUTE\source\repos\Teleportation_Server\Teleportation_Server\bin\Debug\心灵传输：服务器端.exe
+C:\Users\WINDQUTE\source\repos\Teleportation_Server\Teleportation_Server\bin\Debug\心灵传输：服务器端.pdb
+C:\Users\WINDQUTE\source\repos\Teleportation_Server\Teleportation_Server\obj\Debug\心灵传输：服务器端_MarkupCompile.cache
+C:\Users\WINDQUTE\source\repos\Teleportation_Server\Teleportation_Server\obj\Debug\心灵传输：服务器端_MarkupCompile.lref
+C:\Users\WINDQUTE\source\repos\Teleportation_Server\Teleportation_Server\obj\Debug\心灵传输：服务器端.g.resources
+C:\Users\WINDQUTE\source\repos\Teleportation_Server\Teleportation_Server\obj\Debug\心灵传输：服务器端.exe
+C:\Users\WINDQUTE\source\repos\Teleportation_Server\Teleportation_Server\obj\Debug\心灵传输：服务器端.pdb
