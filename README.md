@@ -1,8 +1,8 @@
-# Teleportation
+# Teleportation WANGQI DESIGN
 Design and implementation of C/S mode remote chat software based on TCP (based on C#)
-# 心灵传输
+# 心灵传输 王琪设计与制作
 基于TCP的C/S模式远程聊天软件设计与实现（基于C#实现）
-# 最终版本：V10.0
+# 最终版本：V10.0，Copyright © 王琪  2021
 Final Version: V10.0
 # 版本V10.0的Windows平台的客户端
 /* 编写者：王琪，学号：U201713824，华中科技大学，光学与电子信息学院，电子1702班，QQ：1910652892
